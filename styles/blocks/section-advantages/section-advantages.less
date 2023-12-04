@@ -1,0 +1,51 @@
+.section-advantages {
+    background-color: var(--eee, #eee);
+    padding-block: 30px;
+
+    @media @screen-gt-m {
+        padding-block: 45px;
+    }
+
+    .columns {
+        row-gap: 30px;
+    }
+}
+
+.advantage-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media @screen-gt-s {
+        gap: 10px;
+    }
+
+    @media @screen-gt-m {
+        gap: 30px;
+    }
+
+    &__icon {
+        @icons: delivery, return, support;
+
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @media @screen-gt-m {
+            width: 50px;
+            height: 50px;
+        }
+
+        each(@icons, {
+            &_@{value} {
+                background-image: url('images/@{value}.svg');
+            }
+        });
+    }
+
+    &__text {
+        margin: 0;
+    }
+}
