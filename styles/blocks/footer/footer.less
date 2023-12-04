@@ -1,0 +1,88 @@
+.footer {
+    background: var(--dark-bg, #212122);
+
+    &__links {
+        padding-block: 30px;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+
+        @media @screen-gt-s {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @media @screen-gt-m {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 40px;
+        }
+    }
+
+    .logo {
+        display: none;
+        margin-left: auto;
+
+        @media @screen-gt-m {
+            display: block;
+        }
+    }
+
+    &__separator {
+        margin: 0;
+    }
+
+    &__copyright {
+        padding-block: 15px 20px;
+
+        @media @screen-gt-s {
+            padding-block: 30px;
+        }
+
+        @media @screen-gt-m {
+            padding-bottom: 35px;
+        }
+    }
+}
+
+.social-links-list {
+    display: flex;
+    gap: 15px;
+
+    .social-link {
+        @icons: facebook, twitter, vk, instagram;
+
+        width: 36px;
+        height: 36px;
+
+        each(@icons, {
+            &_@{value}{
+                background-image: url('images/@{value}.svg');
+            }
+        });
+    }
+}
+
+.store-links {
+    display: flex;
+    gap: 8px;
+
+    .store-link {
+        display: block;
+        width: 140px;
+        height: 40px;
+
+        &_apple {
+            background-image: url('images/app_store.svg');
+        }
+        &_google {
+            background-image: url('images/google_play.svg');
+        }
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #999;
+    line-height: 20px;
+}
